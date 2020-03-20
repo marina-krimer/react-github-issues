@@ -12,11 +12,6 @@ class LogOnContainer extends React.Component {
     this.handleRepositoriesChange = this.handleRepositoriesChange.bind(this)
   }
 
-  // componentDidMount = () => {
-  //     userApi.getUsers()
-  //     store.dispatch(loadSearchLayout('users', 'User Results'))
-  // }
-
   onUserChange = (value) => {
     logOnApi.logOnUserChanged(value)
   }
@@ -47,7 +42,6 @@ class LogOnContainer extends React.Component {
 
     return (
       <div>
-        {/* <UserList users={this.props.users} deleteUser={userApi.deleteUser} /> */}
         {/* поля ввода пользователя и репозитория */}
         <LogOn
           error={status.error}
@@ -63,13 +57,6 @@ class LogOnContainer extends React.Component {
     )
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//       setLogOnUserAction: value => dispatch(SetLogOnUser(value))
-//     }
-//   }
-
 
 const mapStateToProps = store =>
   ({

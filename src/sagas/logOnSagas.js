@@ -50,7 +50,7 @@ const mapIssues = (response, sort) => {
 }
 
 function* fetchIssues(action) {
-  const { logOnRepository /*, logOnUser, sort*/ } = action.payload
+  const { logOnRepository } = action.payload
   const logOnUser = yield select(state => state.logOn.logOnUser)
   const sort = yield select(state => state.logOn.sort)
   if (

@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
 import React from 'react'
 import '../../index.css'
 import * as dateformat from '../../api/dateformat'

@@ -17,7 +17,6 @@ const ModalStyles = {
   }
 }
 
-
 class DetailIssueContainer extends React.Component {
   constructor(props) {
     super(props)

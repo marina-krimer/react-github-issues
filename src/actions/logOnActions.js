@@ -1,11 +1,5 @@
 import * as types from './actionTypes'
 
-export function clearIssues(issues = false) {
-  return {
-    type: types.CLEAR_ISSUES
-  }
-}
-
 export function setLogOnUser(value) {
   return {
     type: types.SET_LOGON_USER,
