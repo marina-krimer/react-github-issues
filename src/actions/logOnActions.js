@@ -41,9 +41,9 @@ export function setOrderedIssues(data) {
   }
 }
 
-export function SetLoadingState(loading = false, error = '') {
+export function SetLoadingState(params) {
   return {
     type: types.SET_LOADING_STATE,
-    payload: { loading, error }
+    payload: params
   }
 }

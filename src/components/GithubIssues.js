@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-fragments */
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import { connect } from 'react-redux'
 import Loader from './loader/Loader'

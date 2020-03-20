@@ -50,7 +50,7 @@ export default function logOnReducer(state = initialState, action) {
       return {
         ...state,
         sort: {
-          type,
+          type: payload.type,
           field: payload.field
         }
       }
@@ -58,7 +58,10 @@ export default function logOnReducer(state = initialState, action) {
     case types.SET_LOADING_STATE:
       return {
         ...state,
-        status: payload
+        status: {
+          error: payload.error,
+          loading: payload.loading
+        }
       }
 
 

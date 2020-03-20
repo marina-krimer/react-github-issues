@@ -1,6 +1,4 @@
-import { call, put, select, takeEvery, /* take , takeLatest */ } from 'redux-saga/effects'
-// import * as types from '../actions/actionTypes'
-// import { SET_LOGON_USER } from '../actions/actionTypes'
+import { call, put, select, takeEvery } from 'redux-saga/effects'
 import * as actions from '../actions/logOnActions'
 import * as consts from '../constants'
 import _ from 'lodash'
@@ -33,7 +31,7 @@ function* fetchUserRepositories(action) {
       }))
     }
     catch (error) {
-      yield put(actions.SetLoadingState({ error: `Ошибка: ${error}` }))
+      yield put(actions.SetLoadingState({ loading: false, error: `Ошибка: ${error}` }))
     }
   }
 }
@@ -72,7 +70,7 @@ function* fetchIssues(action) {
       yield put(actions.setIssuesSuccess(data))
     }
     catch (error) {
-      yield put(actions.SetLoadingState({ error: `Ошибка: ${error}` }))
+      yield put(actions.SetLoadingState({ loading: false, error: `Ошибка: ${error}` }))
     }
   }
 }
