@@ -3,8 +3,8 @@ import '../../index.css'
 import _ from 'lodash'
 import ReactPaginate from 'react-paginate'
 import Select from './Select'
-import THItem from '../../api/THItem'
-import TDRefItem from '../../api/TDRefItem'
+import THItem from '../containers/THItem'
+import TDRefItem from '../containers/TDRefItem'
 
 import * as dateformat from '../../api/dateformat'
 

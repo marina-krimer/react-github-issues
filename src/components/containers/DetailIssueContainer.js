@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Modal from 'react-modal'
 import DetailIssueView from '../views/DetailIssueView'
-import * as issuesTableApi from '../../api/issuesTableApi'
+import store from '../../store/configureStore'
+import * as modalActions from '../../actions/modalActions'
 
 Modal.setAppElement('#modal-root')
 
@@ -25,7 +26,7 @@ class DetailIssueContainer extends React.Component {
   }
 
   handleCloseModal = () => {
-    issuesTableApi.setShowModal(false)
+    store.dispatch(modalActions.setShowModal(false))
   }
 
 

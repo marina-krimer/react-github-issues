@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 import IssuesTable from '../views/IssuesTable'
-import * as issuesTableApi from '../../api/issuesTableApi'
+import store from '../../store/configureStore'
+import * as issueTableActions from '../../actions/issuesTableActions'
+import * as modalActions from '../../actions/modalActions'
+import * as logOnActions from '../../actions/logOnActions'
 
 
 class IssuesTableContainer extends React.Component {
@@ -16,16 +19,16 @@ class IssuesTableContainer extends React.Component {
   }
 
   handleOpenModal = row => {
-    issuesTableApi.setModalState({ row, showModal: true })
+    store.dispatch(modalActions.setModalState({ row, showModal: true }))
   }
 
   handlePageChange = ({ selected }) => {
-    issuesTableApi.setCurrentPage(selected)
+    store.dispatch(issueTableActions.setCurrentPage(selected))
   }
 
   handleRowCountChange = event => {
     event.preventDefault()
-    issuesTableApi.setRowCount(event.target.value)
+    store.dispatch(issueTableActions.setRowCount(event.target.value))
   }
 
   handleSort = sortField => {
@@ -33,7 +36,8 @@ class IssuesTableContainer extends React.Component {
     const cloneIssues = issues.concat()
     const sortType = sort.type === 'asc' ? 'desc' : 'asc'
     const orderedData = _.orderBy(cloneIssues, sortField, sortType)
-    issuesTableApi.setOrderedIssues({ issues: orderedData, sort: { type: sortType, field: sortField } })
+    const data = { issues: orderedData, sort: { type: sortType, field: sortField } }
+    store.dispatch(logOnActions.setOrderedIssues(data))
   }
 
   render() {

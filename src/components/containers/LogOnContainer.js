@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import LogOn from '../views/LogOn'
-import * as logOnApi from '../../api/logOnApi'
-
+import store from '../../store/configureStore'
+import * as actions from '../../actions/logOnActions'
 
 class LogOnContainer extends React.Component {
   constructor(props) {
@@ -13,7 +13,10 @@ class LogOnContainer extends React.Component {
   }
 
   onUserChange = (value) => {
-    logOnApi.logOnUserChanged(value)
+    const { logOnUser } = this.props
+    if (logOnUser !== value) {
+      store.dispatch(actions.setLogOnUser(value))
+    }
   }
 
   handleUserBlur = event => {
@@ -30,11 +33,12 @@ class LogOnContainer extends React.Component {
 
   handleRepositoriesChange = event => {
     event.preventDefault()
-    logOnApi.logOnRepositoryChanged({
+    const params = {
       logOnRepository: event.target.value,
       logOnUser: this.props.logOnUser,
       sort: this.props.sort
-    })
+    }
+    store.dispatch(actions.setLogOnRepository(params))
   }
 
   render() {
